@@ -1,0 +1,139 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+###############
+# Completions #
+###############
+# Initialize completions
+autoload -U compinit
+compinit -C  # -C skips security check for faster startup
+
+# Set up line search
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# Arrow key menu for completions
+zstyle ':completion:*' menu select
+# Case-insensitive (all), partial-word and then substring completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+###########
+# Aliases #
+###########
+# Set up aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+
+# Autocomplete command line switches for aliases
+setopt completealiases
+
+###########
+# History #
+###########
+# History file configuration
+export HISTFILE=~/.zsh_history
+export HISTSIZE=50000      # Number of commands to keep in memory
+export SAVEHIST=50000      # Number of commands to save to disk
+
+# History options
+setopt INC_APPEND_HISTORY      # Add commands immediately (not on exit)
+setopt HIST_IGNORE_DUPS        # Don't record duplicate commands
+setopt HIST_IGNORE_SPACE       # Don't record commands starting with space
+setopt HIST_IGNORE_ALL_DUPS    # Remove older duplicate entries
+setopt HIST_FIND_NO_DUPS       # Don't display duplicates when searching
+setopt HIST_REDUCE_BLANKS      # Remove extra blanks from commands
+setopt HIST_VERIFY             # Show command before executing from history
+setopt SHARE_HISTORY           # Share history between all sessions
+setopt EXTENDED_HISTORY        # Save timestamp and duration
+setopt HIST_EXPIRE_DUPS_FIRST  # Expire duplicates first when trimming
+
+# History key bindings
+bindkey "^[[A" up-line-or-beginning-search    # Up arrow
+bindkey "^[[B" down-line-or-beginning-search  # Down arrow
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+
+###########
+# Options #
+###########
+# Directory navigation
+setopt AUTO_CD              # Automatically use cd when paths are entered without cd
+setopt AUTO_PUSHD           # Push directories onto stack
+setopt PUSHD_IGNORE_DUPS    # Don't push duplicates
+setopt PUSHD_SILENT         # Don't print directory stack after pushd/popd
+
+# setopt CORRECT              # Offer to correct mistyped commands
+# setopt CORRECT_ALL          # Offer to correct all arguments
+
+################
+# Path Exports #
+################
+# Prevent duplicate entries in PATH
+typeset -U PATH
+
+###########
+# Plugins #
+###########
+# Zsh autosuggestions
+[[ -f $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Load secrets from a separate file (create ~/.secrets and add your API keys there)
+if [ -f ~/.secrets ]; then
+    source ~/.secrets
+fi
+
+# Starship prompt
+command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
+
+# Zoxide (better cd)
+command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init --cmd cd zsh)"
+
+# FZF
+[[ $- == *i* ]] && source <(fzf --zsh) 2>/dev/null
+
+export LIBRARY_PATH="/opt/homebrew/lib:$LIBRARY_PATH"
+export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Environment variables
+export GIT_EXTERNAL_DIFF="difft"
+export VISUAL="zed"
+export EDITOR="hx"
+export HELIX_RUNTIME="$HOME/Documents/github/public/helix/runtime"
+
+#############
+# Functions #
+#############
+# Yazi file manager with cwd sync
+function yazii() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    env "YAZI_CONFIG_HOME=$HOME/.config/yazi-alt" yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
+
+# Run helix from development build
+function hx-dev() {
+    /Users/sumaniwaram/Documents/github/public/helix/target/debug/hx "$@"
+}
+
+# Rust
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/Users/sumaniwaram/Library/Application Support/mbx/bin:$PATH"
+
+export SCCACHE_DIR="$HOME/.sccache"
+
+# Steel scheme for helix
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/.steel/bin"
+
+# Mole shell completion
+if output="$(mole completion zsh 2>/dev/null)"; then eval "$output"; fi
+
+# Vite+ bin (https://viteplus.dev)
+. "/Users/sumaniwaram/.config/vite-plus/env"
