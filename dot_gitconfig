@@ -1,0 +1,6 @@
+[user]
+    name = asmimo
+    email = sumaniwaram@gmail.com
+
+[includeIf "gitdir:~/Documents/github/private/"]
+    path = ~/.gitconfig-private

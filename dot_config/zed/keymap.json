@@ -1,0 +1,73 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+	{
+		"context": "Workspace",
+		"bindings": {
+			// "shift shift": "file_finder::Toggle"
+		}
+	},
+	{
+		"context": "Editor && vim_mode == insert",
+		"bindings": {
+			// "j k": "vim::NormalBefore"
+		}
+	},
+	{
+		"context": "EmptyPane",
+		"bindings": {
+			"space f": "file_finder::Toggle",
+			"space e": "workspace::ToggleRightDock"
+		}
+	},
+	{
+		"context": "(Editor || ProjectPanel) && (vim_mode == helix_normal || vim_mode == helix_select)",
+		"bindings": {
+			"space f": "file_finder::Toggle",
+			"space e": "workspace::ToggleRightDock",
+			"space i": "editor::ToggleInlayHints"
+		}
+	},
+	{
+		"context": "ProjectPanel && not_editing",
+		"bindings": {
+			"space e": "workspace::ToggleRightDock",
+			"o": "project_panel::Open",
+			"a": "project_panel::NewFile",
+			"r": "project_panel::Rename",
+			"x": "project_panel::Cut",
+			"y": "project_panel::Copy",
+			"p": "project_panel::Paste",
+			"D": "project_panel::Delete",
+			"d": null,
+			"v": "project_panel::OpenSplitVertical",
+			"V": "project_panel::OpenSplitHorizontal",
+			"space w h": "workspace::ActivatePaneLeft",
+			"space w l": "workspace::ActivatePaneRight"
+		}
+	},
+	{
+		"context": "vim_mode == helix_normal || vim_mode == helix_select",
+		"bindings": {
+			"alt-j": "editor::MoveLineDown",
+			"alt-k": "editor::MoveLineUp"
+		}
+	},
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-y": "editor::ToggleFocus"
+		}
+	},
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-G": "git_panel::Toggle"
+		}
+	}
+]

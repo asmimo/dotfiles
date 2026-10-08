@@ -1,0 +1,110 @@
+tap "abue-ammar/tinycast", trusted: true
+tap "augani/dory", "https://github.com/Augani/homebrew-dory"
+tap "driceroland/tap"
+tap "grishy/browserino"
+tap "infisical/get-cli", trusted: true
+tap "kunobi-ninja/kunobi"
+tap "ngrok/ngrok", trusted: true
+tap "nolight132/tap"
+tap "oven-sh/bun", trusted: true
+tap "sozercan/repo"
+tap "stripe/stripe-cli", trusted: true
+tap "theboredteam/boring-notch", "https://github.com/TheBoredTeam/homebrew-boring-notch", trusted: true
+# Simple, modern, secure file encryption
+brew "age"
+# Binary installation for rust projects
+brew "cargo-binstall"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Diff that understands syntax
+brew "difftastic"
+# Command-line tool to interact with exercism.io
+brew "exercism"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Like cURL, but for gRPC
+brew "grpcurl"
+# CLI for Infisical
+brew "infisical"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Save disk space by cleaning non-essential files from software projects
+brew "kondo"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Extremely Fast Compression algorithm
+brew "lz4"
+# Deep clean and optimize your Mac
+brew "mole"
+# HTTP load generator, inspired by rakyll/hey with tui animation
+brew "oha"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Rust toolchain installer
+brew "rustup"
+# Used as a compiler wrapper and avoids compilation when possible
+brew "sccache"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Command-line tool for Stripe
+brew "stripe-cli"
+# TOML toolkit written in Rust
+brew "taplo"
+# Program that allows you to count code, quickly
+brew "tokei"
+# Build server protocol implementation for integrating Xcode with sourcekit-lsp
+brew "xcode-build-server"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Enable Windows-like alt-tab
+cask "alt-tab"
+# Open-source project and knowledge management tool
+cask "appflowy"
+# Browserino is a tiny browser selector for MacOS written in SwiftUI
+cask "grishy/browserino/browserino", trusted: true
+cask "font-symbols-only-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty@tip"
+# Chromium-based web browser
+cask "helium-browser"
+# Blocks all Keyboard and TouchBar input
+cask "keyboardcleantool"
+# Open-source cross-platform alternative to AirDrop
+cask "localsend"
+# Replacement for Docker Desktop
+cask "orbstack"
+# Utility to uninstall apps and remove leftover files from old/uninstalled apps
+cask "pearcleaner"
+# Native music streaming client, built with Rust and GPUI
+cask "nolight132/tap/sonora", trusted: true
+# Removes animations when switching between Spaces
+cask "space-rabbit"
+# System monitor for the menu bar
+cask "stats"
+# Native GUI tool for relational databases
+cask "tableplus"
+# Native database client for many database types
+cask "tablepro"
+# Messaging app with a focus on speed and security
+cask "telegram"
+# Tiny, fully native launcher, hotkeys, and clipboard history
+cask "abue-ammar/tinycast/tinycast"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
+# REST, GraphQL and gRPC client
+cask "yaak"
+# Multiplayer code editor
+cask "zed"
+# Gecko based web browser
+cask "zen"
+npm "corepack"

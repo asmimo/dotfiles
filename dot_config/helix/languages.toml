@@ -1,0 +1,131 @@
+# npm i vscode-langservers-extracted typescript-language-server typescript @tailwindcss/language-server -g
+[language-server.tsc]
+command = "tsc"
+args = ["--lsp", "--stdio"]
+
+[language-server.tailwindcss-ls.config]
+userLanguages = { rust = "html", "*.rs" = "html" }
+tailwindCSS = { experimental = { classRegex = ["class=\"(.*)\""] } }
+
+[language-server.biome]
+command = "bunx"
+args = ["--bun", "biome", "lsp-proxy"]
+
+[language-server.rust-analyzer.config]
+cargo = { features = "all" }
+procMacro = { enable = true }
+checkOnSave = true
+check = { command = "clippy", extraArgs = [
+  "--",
+  "-W",
+  "clippy::pedantic",
+  "-A",
+  "clippy::must_use_candidate",
+  "-A",
+  "clippy::module_name_repetitions",
+  "-A",
+  "clippy::missing_panics_doc",
+  "-A",
+  "clippy::missing_errors_doc",
+  "-A",
+  "clippy::too_many_lines",
+] }
+
+[language-server.copilot]
+command = "copilot-language-server"
+args = ["--stdio"]
+
+[language-server.copilot.config]
+editorInfo = { name = "Helix", version = "25.01" }
+editorPluginInfo = { name = "helix-copilot", version = "0.1.0" }
+
+[[language]]
+name = "rust"
+auto-format = true
+# INFO: not specifiying rustfmt works
+formatter = { command = "rustfmt", args = ["--edition", "2024"] }
+language-servers = [
+  # -
+  "copilot",
+  "tailwindcss-ls",
+  "vscode-html-language-server",
+  "rust-analyzer",
+]
+
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "taplo", args = ["fmt", "-"] }
+language-servers = [
+  # -
+  "taplo",
+]
+
+[[language]]
+name = "json"
+auto-format = true
+language-servers = [
+  # -
+  "vscode-json-language-server",
+  "biome",
+]
+
+[[language]]
+name = "html"
+auto-format = true
+language-servers = [
+  # -
+  "tailwindcss-ls",
+  "vscode-html-language-server",
+  "biome",
+]
+
+[[language]]
+name = "css"
+auto-format = true
+language-servers = [
+  # -
+  "tailwindcss-ls",
+  "vscode-css-language-server",
+  "biome",
+]
+
+[[language]]
+name = "tsx"
+auto-format = true
+language-servers = [
+  # -
+  "tailwindcss-ls",
+  { name = "tsc", except-features = ["format"] },
+  "biome",
+]
+
+[[language]]
+name = "javascript"
+# auto-format = true
+language-servers = [
+  # -
+  "tailwindcss-ls",
+  { name = "tsc", except-features = ["format"] },
+  "biome",
+]
+
+[[language]]
+name = "typescript"
+auto-format = true
+language-servers = [
+  # -
+  "tailwindcss-ls",
+  { name = "tsc", except-features = ["format"] },
+  "biome",
+]
+
+[[language]]
+name = "swift"
+auto-format = true
+language-servers = ["sourcekit-lsp"]
+
+[language-server.sourcekit-lsp]
+command = "xcrun"
+args = ["sourcekit-lsp"]
+config = { "buildSetup" = { "buildServerConfigRelativePath" = "buildServer.json" } }

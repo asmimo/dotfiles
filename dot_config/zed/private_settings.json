@@ -1,0 +1,334 @@
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "calls": {
+    "mute_on_join": false,
+    "share_on_join": true
+  },
+  "audio": {},
+  "edit_predictions": {
+    "provider": "zed"
+  },
+  "buffer_font_size": 13,
+  "ui_font_size": 15,
+  "soft_wrap": "editor_width",
+  "indent_guides": {
+    "coloring": "indent_aware"
+  },
+  "title_bar": {
+    "show_sign_in": false
+  },
+  "tab_bar": {
+    // "show": false,
+    "show_nav_history_buttons": true
+  },
+  "tabs": {
+    "git_status": true
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "status_bar": {
+    "experimental.show": true
+  },
+  "project_panel": {
+    "hide_hidden": false,
+    "dock": "right",
+    "auto_open": {
+      "on_paste": false
+    }
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left",
+    "tree_view": true
+  },
+  "diff_view_style": "split",
+  "agent": {
+    "commit_message_instructions": "Follow Conventional Commits. Also add scope. Look at previous commit on how scopes are added",
+    "profiles": {
+      "ask": {
+        "name": "Ask",
+        "tools": {
+          "create_thread": true,
+          "diagnostics": true,
+          "ask_user": true,
+          "fetch": true,
+          "list_agents_and_models": true,
+          "list_directory": true,
+          "find_path": true,
+          "find_references": true,
+          "get_code_actions": true,
+          "go_to_definition": true,
+          "read_file": true,
+          "grep": true,
+          "skill": true,
+          "spawn_agent": true,
+          "search_web": true,
+          "terminal": true
+        },
+        "enable_all_context_servers": true,
+      }
+    },
+    "default_profile": "ask",
+    "default_model": {
+      "effort": "medium",
+      "enable_thinking": false,
+      "provider": "amazon-bedrock",
+      "model": "claude-sonnet-4-6"
+    },
+    "dock": "left",
+    "model_parameters": []
+  },
+  "context_servers": {
+    "Context7": {
+      "command": "bunx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
+    },
+    "helium-devtools": {
+      "command": "bunx",
+      "args": ["-y", "@helium-devtools/mcp"]
+    }
+  },
+  "helix_mode": true,
+  "command_aliases": {
+    "bc": "pane::CloseActiveItem"
+  },
+  "auto_install_extensions": {
+    "html": false
+  },
+  "node": {
+    "ignore_system_version": false,
+    "path": "node",
+    "npm_path": "npm"
+  },
+  "prettier": {
+    "allowed": false
+  },
+  "enable_language_server": true,
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "language_servers": ["oxlint", "oxfmt", "depsy", "wakatime", "!eslint", "!vtsls"],
+  "lsp": {
+    "rust-analyzer": {
+      "binary": {
+        "path": "rust-analyzer"
+      },
+      "initialization_options": {
+        "cargo": {
+          "targetDir": true,
+          "buildScripts": {
+            "enable": true
+          },
+          "features": []
+        },
+        "procMacro": {
+          "enable": true
+        },
+        // "checkOnSave": true,
+        // "check": {
+          // "command": "clippy"
+          // "extraArgs": [
+          //   "--",
+          //   "-W",
+          //   "clippy::pedantic",
+          //   "-A",
+          //   "clippy::missing_errors_doc",
+          //   "-A",
+          //   "clippy::must_use_candidate",
+          //   "-A",
+          //   "clippy::too_many_lines"
+          // ]
+        // }
+      }
+    },
+    "typescript-language-server": {
+      "binary": {
+        "path": "tsc",
+        "arguments": ["--lsp", "--stdio"]
+      }
+    },
+    "vscode-css-language-server": {
+      "binary": {
+        "path": "vscode-css-language-server",
+        "arguments": ["--stdio"]
+      }
+    },
+    "json-language-server": {
+      "binary": {
+        "path": "vscode-json-language-server",
+        "arguments": ["--stdio"]
+      }
+    },
+    "oxlint": {
+      "binary": {
+        "path": "vp",
+        "arguments": ["lint", "--lsp"]
+      },
+      "initialization_options": {
+        "settings": {
+          "run": "onType",
+          "fixKind": "safe_fix",
+          "typeAware": true,
+          "unusedDisableDirectives": "deny"
+        }
+      }
+    },
+    "oxfmt": {
+      "binary": {
+        "path": "vp",
+        "arguments": ["fmt","--lsp"]
+      },
+      "initialization_options": {
+        "settings": {
+          "fmt.configPath": "./vite.config.ts",
+          "run": "onSave"
+        }
+      }
+    },
+    "tailwindcss-language-server": {
+      "binary": {
+        "path": "tailwindcss-language-server",
+        "arguments": ["--stdio"]
+      },
+      "settings": {
+        "includeLanguages": {
+          "rust": "html",
+          ".rs": "html"
+        },
+        "classFunctions": ["cva", "cx"],
+        "experimental": {
+          "classRegex": [
+            "[cls|className]\\s\\:\\=\\s\"([^\"]*)",
+            "class=\"([^\"]*)",
+            "class={\"([^\"}]*)"
+          ]
+        }
+      }
+    },
+    "depsy": {
+      "initialization_options": {
+        "inlay_hints": {
+          "enabled": true,
+          "show_up_to_date": true
+        },
+        "diagnostics": {
+          "enabled": true
+        },
+        "cache": {
+          "ttl_secs": 300
+        },
+        "security": {
+          "enabled": true,
+          "show_in_hints": true,
+          "show_diagnostics": true,
+          "min_severity": "low"
+        },
+        "ignore": ["internal-*", "test-pkg"]
+      }
+    }
+  },
+  "languages": {
+    "Rust": {
+      "language_servers": [
+        // for formatting
+        "rust-analyzer",
+        "tailwindcss-language-server",
+        "wakatime"
+      ],
+      "format_on_save": "on"
+    },
+    "TOML": {
+      "language_servers": ["taplo", "oxfmt", "depsy", "wakatime"],
+      "format_on_save": "on",
+      "formatter": {
+        "language_server": {
+          "name": "oxfmt"
+        }
+      }
+    },
+    "JSON": {
+      "language_servers": [
+        "json-language-server",
+        "oxlint",
+        "oxfmt",
+        "depsy",
+        "wakatime"
+      ],
+      "format_on_save": "on",
+      "formatter": {
+        "language_server": {
+          "name": "oxfmt"
+        }
+      }
+    },
+    "JSONC": {
+      "language_servers": [
+        "json-language-server",
+        "oxlint",
+        "oxfmt",
+        "depsy",
+        "wakatime"
+      ],
+      "format_on_save": "on",
+      "formatter": {
+        "language_server": {
+          "name": "oxfmt"
+        }
+      }
+    },
+    "CSS": {
+      "language_servers": [
+        "tailwindcss-language-server",
+        "!vscode-css-language-server",
+        "oxlint",
+        "oxfmt",
+        "wakatime"
+      ],
+      "format_on_save": "on",
+      "formatter": {
+        "language_server": {
+          "name": "oxfmt"
+        }
+      }
+    },
+    "TypeScript": {
+      "language_servers": [
+        "tailwindcss-language-server",
+        "typescript-language-server",
+        "oxlint",
+        "oxfmt",
+        "wakatime"
+      ],
+      "format_on_save": "on",
+      "formatter": {
+        "language_server": {
+          "name": "oxfmt"
+        }
+      }
+    },
+    "Swift": {
+      "enable_language_server": true,
+      "language_servers": ["sourcekit-lsp", "wakatime"],
+      "format_on_save": "on",
+      "formatter": "language_server"
+    }
+  }
+}

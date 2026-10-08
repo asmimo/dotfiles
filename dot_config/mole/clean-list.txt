@@ -1,0 +1,85 @@
+# Mole Cleanup Preview - 2026-09-17 12:12:20
+#
+# How to protect files:
+# 1. Copy any path below to ~/.config/mole/whitelist
+# 2. Run: mo clean --whitelist
+#
+# Example:
+#   /Users/*/Library/Caches/com.example.app
+#
+
+
+=== User essentials ===
+/Users/sumaniwaram/Library/Caches/zen  # 16KB
+/Users/sumaniwaram/Library/Caches/GameKit  # 49KB
+/Users/sumaniwaram/Library/Caches/PassKit  # 4KB
+/Users/sumaniwaram/Library/Caches/Homebrew  # 43.4MB
+/Users/sumaniwaram/Library/Caches/GeoServices  # 58.0MB
+/Users/sumaniwaram/Library/Caches/com.tinycast.app  # 8KB
+/Users/sumaniwaram/Library/Caches/dev.biomejs.biome  # 16KB
+/Users/sumaniwaram/Library/Caches/com.alienator88.Pearcleaner  # 1.9MB
+/Users/sumaniwaram/Library/Caches/com.plausiblelabs.crashreporter.data  # 0B
+/Users/sumaniwaram/Library/Logs/Baseband  # 0B
+/Users/sumaniwaram/Library/Logs/Assistant  # 0B
+/Users/sumaniwaram/Library/Logs/CoreSimulator  # 4KB
+/Users/sumaniwaram/Library/Logs/CrashReporter  # 12KB
+/Users/sumaniwaram/Library/Logs/DiagnosticReports  # 0B
+
+=== App caches ===
+/Users/sumaniwaram/Library/Suggestions/Metrics  # 0B
+/Users/sumaniwaram/Library/Suggestions/journals  # 0B
+/Users/sumaniwaram/Library/Suggestions/Harvesting  # 512KB
+/Users/sumaniwaram/Library/Suggestions/mifeaturestore.db  # 53KB
+/Users/sumaniwaram/Library/Suggestions/email-to-name.kvcache  # 0B
+/Users/sumaniwaram/Library/Suggestions/phone-to-name.kvcache  # 0B
+/Users/sumaniwaram/Library/Suggestions/suggestions-device-day-group  # 1KB
+/Users/sumaniwaram/Library/Suggestions/significant-pseudo-contacts.bf.bf2-head  # 50KB
+/Users/sumaniwaram/Library/Suggestions/significant-pseudo-contacts.bf.bf2-tail  # 50KB
+/Users/sumaniwaram/Library/Containers/com.apple.wallpaper.agent/Data/Library/Caches/com.apple.wallpaper.caches  # 26.6MB
+/Users/sumaniwaram/Library/Containers/com.apple.mediaanalysisd/Data/Library/Caches/PFSceneGeographyData.index  # 88.5MB
+/Users/sumaniwaram/Library/Containers/com.apple.mediaanalysisd/Data/Library/Caches/PFSceneTaxonomyData_99.index  # 2.2MB
+/Users/sumaniwaram/Library/Containers/com.apple.geod/Data/tmp/TemporaryItems  # 0B
+/Users/sumaniwaram/Library/Containers/com.apple.geod/Data/tmp/266EF3DB-E7A4-444E-B501-390A257AF0DD  # 318KB
+/Users/sumaniwaram/Library/Containers/com.apple.geod/Data/tmp/B8830B06-3555-40AC-BC02-0F76B73BD66B  # 0B
+/Users/sumaniwaram/Library/Caches/com.apple.helpd/Cache.db  # 709KB
+/Users/sumaniwaram/Library/Caches/com.apple.helpd/Generated  # 23.4MB
+/Users/sumaniwaram/Library/Caches/com.apple.helpd/HSTS.plist  # 1KB
+/Users/sumaniwaram/Library/Caches/com.apple.helpd/Cache.db-shm  # 33KB
+/Users/sumaniwaram/Library/Caches/com.apple.helpd/Cache.db-wal  # 2.5MB
+/Users/sumaniwaram/Library/Caches/com.apple.helpd/fsCachedData  # 17.3MB
+/Users/sumaniwaram/Library/Caches/com.apple.helpd/HelpCache.plist  # 36KB
+/Users/sumaniwaram/Library/Caches/com.apple.helpd/CSHelpIndex.plist  # 29KB
+/Users/sumaniwaram/Library/Caches/GeoServices/Resources  # 57.3MB
+/Users/sumaniwaram/Library/Caches/GeoServices/Experiments.pbd  # 1KB
+/Users/sumaniwaram/Library/Caches/GeoServices/ActiveTileGroup.pbd  # 292KB
+/Users/sumaniwaram/Library/Caches/GeoServices/ResourceManifest.pbd  # 319KB
+/Users/sumaniwaram/Library/Caches/GeoServices/SearchAttribution.pbd  # 70KB
+/Users/sumaniwaram/Library/Caches/GeoServices/DirectReadConfigStore.plist  # 1KB
+/Users/sumaniwaram/Library/Containers/com.apple.AvatarUI.AvatarPickerMemojiPicker/Data/Library/Caches/com.apple.AvatarKit  # 40.4MB
+/Users/sumaniwaram/Library/Containers/com.apple.CoreDevice.CoreDeviceService/Data/Library/Caches/AppInstallationBinaryDeltas  # 51.9MB
+/Users/sumaniwaram/Library/Caches/com.apple.AppleMediaServices/Metrics  # 729KB
+/Users/sumaniwaram/Library/Caches/com.apple.AppleMediaServices/Storage  # 45KB
+/Users/sumaniwaram/Library/Caches/com.apple.AppleMediaServices/DynamicUI  # 0B
+/Users/sumaniwaram/Library/Caches/com.apple.AppleMediaServices/Engagement  # 467KB
+/Users/sumaniwaram/Library/Caches/com.apple.AppleMediaServices/sap-setup-cert.txt  # 3KB
+/Users/sumaniwaram/Library/Caches/com.apple.parsecd/Cohorts  # 0B
+/Users/sumaniwaram/Library/Caches/com.apple.parsecd/bag.plist  # 3KB
+/Users/sumaniwaram/Library/Caches/com.apple.parsecd/CustomFeedback  # 0B
+/Users/sumaniwaram/Library/Caches/com.apple.python/Applications  # 5.1MB
+
+=== Browsers ===
+/Users/sumaniwaram/Library/Caches/zen/Profiles  # 16KB
+
+=== Developer tools ===
+/Users/sumaniwaram/.npm/_logs/2026-09-17T06_27_04_212Z-debug-0.log  # 1KB
+/Users/sumaniwaram/Library/Logs/CoreSimulator/CoreSimulator.log  # 4KB
+
+=== Apps & utilities ===
+/Users/sumaniwaram/.zcompdump  # 50KB
+
+# ============================================
+# Summary
+# ============================================
+# Potential cleanup: 422.5MB
+# Items: 58
+# Categories: 5
